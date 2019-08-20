@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+
+		<head th:replace="fragmentos/head :: head-css">
+		
+		</head>
+		
+			<title>Nav</title>
+
+				<body  class="container-fluid">
+				
+				<div class="row">
+			
+				<div class="col-lg-4 col-xs-4">
+			
+<!-- 			<nav th:replace="fragmentos/top-nav :: nav"> </nav> -->
+  
+  
+    <div th:fragment="nav-side">
+        <!-- Left Sidebar -->
+<!--         <aside id="leftsidebar" class="sidebar"> -->
+            <!-- User Info -->
+
+<!-- <div id="leftmenu"> -->
+  
+  <div id="date_time">
+    <div id="date" class="semi_arc e4">
+      <div class="semi_arc_2 e4_1">
+        <div class="counterspin4"></div>
+      </div>
+        <div style="font-size: 40px; margin-top: 25px;" th:text="${day}">04</div>
+        <div style="font-size: 25px;" th:text="${mesnome}">January</div>
+    </div>
+    
+    <div id="time" class="arc e1">
+        <div style="font-size: 23px; margin-left: -10px; margin-top: 23px;" th:text="${horafull + ':' + minuto} " >23:41</div>
+        <div style="font-size: 15px; margin-left: 40px; margin-top: -30px; display; inline;" th:text="${segundo}">31</div>
+        <div style="font-size: 17px; margin-top: 10px;" th:text="${dianome}" >Tuesday</div>
+    </div>
+  </div>
+  
+
+
+  
+<!-- </div> -->
+
+ </div>
+</div>
+
+
+   
+    
+    </div>
+		
+		</body>
+		
+
+		</html>
+
+

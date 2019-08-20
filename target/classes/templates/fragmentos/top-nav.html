@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragmentos/head :: head-css">
+
+
+</head>
+
+
+<title>Top Nav</title>
+
+
+
+	<body>
+
+
+		 
+	    <header class="navbar navbar-static-top" th:fragment="top-nav" >
+	    
+	   	<div class="container-fluid">
+		 <div class="row">
+		 <div class="col-lg-12 col-xs-12">
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+        
+      
+        
+
+  <ul class="nav navbar-nav col-lg-12 col-xs-12">
+<!--   <li></li> -->
+<!--   <li></li> -->
+<!--   <li></li> -->
+   <li>  <button  th:href="@{/inicial}"><a th:href="@{/tabela}"> <span class="entypo-right-open"/> <p class="caption">Tabela</p> </a></button></li>
+   <li> <button  th:href="@{/tabela}"><a th:href="@{/inicial}"> <span class="entypo-right-open"/> <p class="caption">Global</p></a> </button></li>
+<!--     <button class="menuitem"> <span class="entypo-right-open"/> <p class="caption">Computer</p> </button> -->
+<!--     <button class="menuitem"> <span class="entypo-right-open"/> <p class="caption">Control Panel</p> </button> -->
+    
+<!--     <hr style="border-color: transparent; margin: 0;"/> -->
+<!--     <div class="hline" style="margin-top: 1em;"></div> -->
+    
+<!--     <button class="menuitem"> <span class="entypo-right-open"/> <p class="caption">Custom Path 1</p> </button> -->
+<!--     <button class="menuitem"> <span class="entypo-right-open"/> <p class="caption">Custom Path 2</p> </button> -->
+<!--     <button class="menuitem"> <span class="entypo-right-open"/> <p class="caption">Custom Path 3</p> </button> -->
+  </ul>
+  
+
+<!-- <div   class="video col-lg-2 col-xs-2" > video  </div> -->
+
+</div>
+</div>
+</div>
+
+
+  </header>
+
+  
+	</body>
+
+</html>
+
+
