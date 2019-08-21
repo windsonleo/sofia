@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+
+
+
+	<head th:replace="fragmentos/head :: head-css">
+
+	</head>
+
+
+	<title>Home</title>
+	
+	<body class="bodyy">
+	
+	<div th:replace="fragmentos/top-nav :: 	top-nav"> </div>
+<!-- 	<div class="wrapper"> -->
+				
+<div th:replace="fragmentos/nav :: nav-side"> </div>
+				
+<!-- 	<div class="content-wrapper">			 -->
+<section class="container-fluid">
+<!-- <div class="row"> -->
+ 
+
+<!-- Arc Reactor -->
+
+
+
+
+<div class="row">
+<!--  <div id="container"></div> -->
+
+<div class="col-lg-12 col-xs-12">
+
+ <div class="col-lg-6 col-xs-6">
+<div id="arc_container">
+  <div class="arc_reactor">
+    <div class="case_container">
+      <div class="e7">
+        <div class="semi_arc_3 e5_1">
+          <div class="semi_arc_3 e5_2">
+            <div class="semi_arc_3 e5_3">
+              <div class="semi_arc_3 e5_4"> <label>99%</label></div>
+            </div>
+          </div>
+        </div>
+        <div class="core2"></div>
+      </div>
+      <ul class="marks">
+        <li></li><li></li><li></li><li></li><li></li><li></li>
+        <li></li><li></li><li></li><li></li><li></li><li></li>
+        <li></li><li></li><li></li><li></li><li></li><li></li>
+        <li></li><li></li><li></li><li></li><li></li><li></li>
+        <li></li><li></li><li></li><li></li><li></li><li></li>
+        <li></li><li></li><li></li><li></li><li></li><li></li>
+        <li></li><li></li><li></li><li></li><li></li><li></li>
+        <li></li><li></li><li></li><li></li><li></li><li></li>
+        <li></li><li></li><li></li><li></li><li></li><li></li>
+        <li></li><li></li><li></li><li></li><li></li><li></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- <div class="progress"> -->
+<!--   <div class="progress-bar-vertical progress-bar-success progress-bar-striped active" role="progressbar" -->
+<!--   aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color:rgba(2, 255, 255, 0.15) !important;"> -->
+<!--     40% -->
+<!--   </div> -->
+<!-- </div> -->
+
+
+<!-- <div class="progress"> -->
+<!--   <div class="progress-bar-vertical progress-bar-info progress-bar-striped active" role="progressbar" -->
+<!--   aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:80%; background-color:rgba(2, 255, 255, 0.15) !important;">  -->
+<!-- 80% -->
+<!-- </div> -->
+
+
+<!-- </div> -->
+<div  class="alinha">
+<div  class="col-lg-4 col-xs-4">
+
+<div class="progress progress-bar-vertical">
+  <div class="progress-bar progress-bar-success progress-bar-striped progress-bar-animated active" role="progressbar"
+  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
+    40%
+<!--      <label>xxxx</label> -->
+  </div>
+<!--   <label>xxxx</label> -->
+
+
+</div>
+<!--  <label>xxxx</label> -->
+
+<div class="progress progress-bar-vertical">
+
+    <div class="progress-bar progress-bar-warning progress-bar-striped progress-bar-animated active" role="progressbar"
+  aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" > 
+80%
+</div>
+<!--  <span>yyyy</span> -->
+
+</div>
+<!--  <label>yyyy</label> -->
+ 
+ <div class="progress progress-bar-vertical">
+    <div class="progress-bar progress-bar-danger progress-bar-striped progress-bar-animated active" role="progressbar"
+  aria-valuenow="25" aria-valuemin="20" aria-valuemax="100" >25%</div>
+<!--   <label>zzzz</label>  -->
+</div>
+
+</div>
+
+</div>
+
+
+<!-- </div> -->
+
+</div>
+</div>
+
+<div class="row">
+
+<div class="col-lg-12 col-xs-12">
+
+<div  class="col-lg-3 col-xs-3" style="margin-top:-12em;" >
+<video id="video"  class="video"  > video  </video>
+<br> 
+<canvas id="canvast"  class="video"  style="margin-left:2px; z-index:-999;" >  </canvas> </br>
+ <label id="nomeuser" for="canvast" >Usuario: Desconhecido</label>
+</div>
+
+
+<div class="end col-lg-4 col-xs-4" style="margin-top:-3em;">
+<!--   <div class=""> -->
+
+  <svg>
+    <rect></rect>
+  </svg>
+  
+    <div id="loca">
+  </div>
+
+  <div id="msg">
+  </div>
+<!--   </div> -->
+  
+  </div> <br/>
+  
+  <div class="col-lg-4 col-xs-4" >
+<div class="waves-container">
+    <canvas id="waves-canvas"></canvas>
+</div>
+</div>
+
+<!-- <div id="container"></div> -->
+  
+
+</div>
+</div>
+<!-- </div> -->
+
+
+<!-- <div class="row"> -->
+
+
+
+<!-- </div> -->
+
+
+</section>
+<!-- </div> -->
+
+
+<!-- </div> -->
+
+
+
+	<div th:replace="fragmentos/footer :: script" style="display:none;"></div>
+
+<!-- 						<script src="resources/static/globe/globe/third-party/Detector.js" -->
+<!-- 			th:src="@{/globe/globe/third-party/Detector.js}" th:inline="javascript" ></script> -->
+			
+			
+<!-- 		<script src="resources/static/globe/globe/third-party/three.min.js" -->
+<!-- 		 th:src="@{/globe/globe/third-party/three.min.js}"  th:inline="javascript"></script> -->
+
+
+<!-- 								<script src="resources/static/globe/globe/third-party/Tween.js" -->
+<!-- 			th:src="@{/globe/globe/third-party/Tween.js}" th:inline="javascript" ></script> -->
+
+<!-- 				<script src="resources/static/globe/globe/globe.js" -->
+<!-- 			th:src="@{/globe/globe/globe.js}"></script> -->
+
+  
+	
+	</body>
+
+</html>

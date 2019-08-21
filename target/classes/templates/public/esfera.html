@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+
+
+
+	<head th:replace="fragmentos/head :: head-css">
+
+	</head>
+	
+	<style>
+	
+				html, body {
+				height: 100%;
+			}
+			
+			body {
+			background-image:url("images/back.jpg");
+								 -webkit-background-size: cover;
+					-moz-background-size: cover;
+					background-size: cover;
+					-o-background-size: cover;
+				
+			
+			}
+			
+			body imagem {
+			
+			opacity:0.5;
+			
+			}
+
+			#info {
+				position: absolute;
+				width: 100%;
+				color: #ffffff;
+				padding: 5px;
+				font-family: Monospace;
+				font-size: 13px;
+				font-weight: bold;
+				text-align: center;
+				z-index: 1;
+			}
+
+			#menu {
+				position: fixed;
+				bottom: 10px;
+				width: 100%;
+				text-align: center;
+			}
+
+			.element {
+				width: 140px;
+				height: 180px;
+				box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+				border: 1px solid rgba(127,255,255,0.25);
+				text-align: center;
+				cursor: default;
+				position:absolute;
+				margin:1em;
+			}
+
+			.element:hover,imagem {
+				box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
+				border: 1px solid rgba(127,255,255,0.75);
+			}
+
+				.element .number {
+					position: absolute;
+					top: 20px;
+					right: 20px;
+					font-size: 12px;
+					box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
+					display:none;
+					
+				}
+
+				.element .symbol {
+					position: absolute;
+					top: 40px;
+					left: 0px;
+					right: 0px;
+					font-size: 30px;
+					font-weight: bold;
+					color: rgba(255,255,255,0.75);
+					text-shadow: 0 0 10px rgba(0,255,255,0.95);
+					z-index:999;
+/* 										display:none; */
+
+				}
+
+				.element .details {
+					position: absolute;
+					bottom: 15px;
+					left: 0px;
+					right: 0px;
+					font-size: 12px;
+					color: rgba(127,255,255,0.75);
+/* 										display:none; */
+
+				}
+				
+				
+				.imagem {
+					position: relative;
+					width: 100%;
+					height: 100%;
+					color: rgba(127,255,255,0.75);
+					 -webkit-background-size: cover;
+					-moz-background-size: cover;
+					background-size: cover;
+					-o-background-size: cover;
+					opacity:0.9;
+				}
+
+			button {
+				color: rgba(127,255,255,0.75);
+				background: transparent;
+				outline: 1px solid rgba(127,255,255,0.75);
+				border: 0px;
+				padding: 5px 10px;
+				cursor: pointer;
+			}
+			button:hover {
+				background-color: rgba(0,255,255,0.5);
+			}
+			button:active {
+				color: #000000;
+				background-color: rgba(0,255,255,0.75);
+			}
+			
+			.modal-content {
+			
+			    background-clip: padding-box;
+			    border: 1px solid rgba(0,0,0,.2);
+    			border-radius: 6px;
+   				 outline: 0;
+   				background-color: rgba(0,0,0,0.5);	
+				width: 100%;
+				height: auto;
+				position:absolute;
+				margin:1em;
+			}
+			
+						.modal-header {
+			
+			    background-clip: padding-box;
+			    border: 1px solid rgba(0,0,0,.2);
+    			border-radius: 6px;
+   				 outline: 0;
+   				background-color: rgba(0,0,0,0.5);	
+				width: 100%;
+/* 				height: auto; */
+				position:absolute;
+				margin:1em;
+			}
+			
+									.modal-body {
+			
+			    background-clip: padding-box;
+			    border: 1px solid rgba(0,0,0,.2);
+    			border-radius: 6px;
+   				 outline: 0;
+   				background-color: rgba(0,0,0,0.5);	
+				width: 100%;
+/* 				height: auto; */
+				position:absolute;
+				margin:1em;
+			}
+			
+			
+			.modal-body .symbol {
+					position: absolute;
+					top: 60px;
+					left: 0px;
+					right: 0px;
+					font-size: 60px;
+					font-weight: bold;
+					color: rgba(255,255,255,0.75);
+					text-shadow: 0 0 10px rgba(0,255,255,0.95);
+					z-index:999;
+/* 										display:none; */
+
+				}
+			
+			
+			}
+			
+			</style>
+
+	<title>Esfera</title>
+	
+	<body class="bodyy">
+	
+	<div th:replace="fragmentos/top-nav :: 	top-nav"> </div>
+	<div class="wrapper">
+				
+<div th:replace="fragmentos/nav :: nav-side"> </div>
+				
+	<div class="content-wrapper">			
+<section class="container-fluid">
+
+
+<!-- <div class="row"> -->
+ 
+
+<!--  Arc Reactor --> 
+<!--  <div class="col-lg-9 col-xs-4"> -->
+<!-- <div id="arc_container"> -->
+<!--   <div class="arc_reactor"> -->
+<!--     <div class="case_container"> -->
+<!--       <div class="e7"> -->
+<!--         <div class="semi_arc_3 e5_1"> -->
+<!--           <div class="semi_arc_3 e5_2"> -->
+<!--             <div class="semi_arc_3 e5_3"> -->
+<!--               <div class="semi_arc_3 e5_4"></div> -->
+<!--             </div> -->
+<!--           </div> -->
+<!--         </div> -->
+<!--         <div class="core2"></div> -->
+<!--       </div> -->
+<!--       <ul class="marks"> -->
+<!--         <li></li><li></li><li></li><li></li><li></li><li></li> -->
+<!--         <li></li><li></li><li></li><li></li><li></li><li></li> -->
+<!--         <li></li><li></li><li></li><li></li><li></li><li></li> -->
+<!--         <li></li><li></li><li></li><li></li><li></li><li></li> -->
+<!--         <li></li><li></li><li></li><li></li><li></li><li></li> -->
+<!--         <li></li><li></li><li></li><li></li><li></li><li></li> -->
+<!--         <li></li><li></li><li></li><li></li><li></li><li></li> -->
+<!--         <li></li><li></li><li></li><li></li><li></li><li></li> -->
+<!--         <li></li><li></li><li></li><li></li><li></li><li></li> -->
+<!--         <li></li><li></li><li></li><li></li><li></li><li></li> -->
+<!--       </ul> -->
+<!--     </div> -->
+<!--   </div> -->
+<!-- </div> -->
+<!-- </div> -->
+
+
+
+
+
+
+<!-- </div> -->
+
+
+
+
+<div class="row">
+
+<div class="col-lg-12 col-xs-12">
+		<div id="containerr"></div>
+
+<!-- 		<div id="menu"> -->
+<!-- 			<button id="table">TABELA</button> -->
+<!-- 			<button id="sphere">ESFERA</button> -->
+<!-- 			<button id="helix">HELICOIDAL</button> -->
+<!-- 			<button id="grid">GRADE</button> -->
+<!-- 		</div> -->
+
+<!-- </div> -->
+
+<div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="element modal-content">
+
+                <!-- Header -->
+                <div class="element modal-header">
+                    <h3 id="headone">Header</h3>
+                </div>
+
+                <!-- Body -->
+                <div class="element modal-body">
+                
+                <p id="ponesim" class="symbol">Sim</p>
+                    <p id="pone">Body</p>
+                </div>
+
+                <!-- Footer -->
+<!--                 <div class=" element modal-footer modal-footer mine"> -->
+<!--                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+<!--                 </div> -->
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</div>
+
+
+<div class="row">
+<div class="col-lg-12 col-xs-12">
+<!-- 		<div id="container"></div> -->
+
+		<div id="menu">
+			<button id="table">TABELA</button>
+			<button id="sphere">ESFERA</button>
+			<button id="helix">HELICOIDAL</button>
+			<button id="grid">GRADE</button>
+		</div>
+
+</div>
+</div>
+
+
+<!-- </div> -->
+
+</section>
+
+
+<div th:replace="fragmentos/footer :: script" style="display:none;"></div>
+	
+	</div>
+	</div>
+	
+										<script src="resources/static/tab/js/three.js"
+			th:src="@{/tab/js/three.js}" th:inline="javascript" ></script>
+			
+			
+		<script src="resources/static/tab/js/tween.min.js"
+		 th:src="@{/tab/js/tween.min.js}"  th:inline="javascript"></script>
+
+
+								<script src="resources/static/tab/js/TrackballControls.js"
+			th:src="@{/tab/js/TrackballControls.js}" th:inline="javascript" ></script>
+
+				<script src="resources/static/tab/js/CSS3DRenderer.js"
+			th:src="@{/tab/js/CSS3DRenderer.js}"></script>
+	
+<script type="text/javascript">
+
+/*<![CDATA[*/
+
+var table = [
+	"H", "Hydrogen", "1.00794", 1, 1, "",
+	"He", "Helium", "4.002602", 18, 1, "",
+	"Li", "Lithium", "6.941", 1, 2, "",
+	"Be", "Beryllium", "9.012182", 2, 2, "",
+	"B", "Boron", "10.811", 13, 2, "", 
+	"C", "Carbon", "12.0107", 14, 2,"",
+	"N", "Nitrogen", "14.0067", 15, 2,"",
+	"O", "Oxygen", "15.9994", 16, 2,"",
+	"F", "Fluorine", "18.9984032", 17, 2,"",
+	"Ne", "Neon", "20.1797", 18, 2,"ital2",
+	"Na", "Sodium", "22.98976...", 1, 3,"sofia",
+	"Mg", "Magnesium", "24.305", 2, 3,"sof",
+	"Al", "Aluminium", "26.9815386", 13, 3,"lela",
+	"Si", "Silicon", "28.0855", 14, 3,"and",
+	"P", "Phosphorus", "30.973762", 15, 3,"bet",
+	"S", "Sulfur", "32.065", 16, 3,"betaa",
+	"Cl", "Chlorine", "35.453", 17, 3,"casam",
+	"Ar", "Argon", "39.948", 18, 3,"clara",
+	"K", "Potassium", "39.948", 1, 4,"etie",
+	"Ca", "Calcium", "40.078", 2, 4,"clau",
+	"Sc", "Scandium", "44.955912", 3, 4,"eunicclau",
+	"Ti", "Titanium", "47.867", 4, 4,"fafafa",
+	"V", "Vanadium", "50.9415", 5, 4,"gal",
+	"Cr", "Chromium", "51.9961", 6, 4,"graca",
+	"Mn", "Manganese", "54.938045", 7, 4,"isaq",
+	"Fe", "Iron", "55.845", 8, 4,"leli_lela",
+	"Co", "Cobalt", "58.933195", 9, 4,"lelilelabb",
+	"Ni", "Nickel", "58.6934", 10, 4,"lelinic",
+	"Cu", "Copper", "63.546", 11, 4,"lira",
+	"Zn", "Zinc", "65.38", 12, 4,"livrafa",
+	"Ga", "Gallium", "69.723", 13, 4,"lucasm",
+	"Ge", "Germanium", "72.63", 14, 4,"maeclara",
+	"As", "Arsenic", "74.9216", 15, 4,"mmaee",
+	"Se", "Selenium", "78.96", 16, 4,"sue",
+	"Br", "Bromine", "79.904", 17, 4,"soiff",
+	"Kr", "Krypton", "83.798", 18, 4,"sofia",
+	"Rb", "Rubidium", "85.4678", 1, 5,"windson",
+	"Sr", "Strontium", "87.62", 2, 5,"3t",
+	"Y", "Yttrium", "88.90585", 3, 5,"bct",
+	"Zr", "Zirconium", "91.224", 4, 5,"caja",
+	"Nb", "Niobium", "92.90628", 5, 5,"carlos",
+	"Mo", "Molybdenum", "95.96", 6, 5,"claudin",
+	"Tc", "Technetium", "(98)", 7, 5,"cris",
+	"Ru", "Ruthenium", "101.07", 8, 5,"cris2",
+	"Rh", "Rhodium", "102.9055", 9, 5,"claunic",
+	"Pd", "Palladium", "106.42", 10, 5,"ddd",
+	"Ag", "Silver", "107.8682", 11, 5,"dinho",
+	"Cd", "Cadmium", "112.411", 12, 5,"eueeu",
+	"In", "Indium", "114.818", 13, 5,"fab",
+	"Sn", "Tin", "118.71", 14, 5,"fablau",
+	"Sb", "Antimony", "121.76", 15, 5,"feri",
+	"Te", "Tellurium", "127.6", 16, 5,"ffelp",
+	"I", "Iodine", "126.90447", 17, 5,"fili",
+	"Xe", "Xenon", "131.293", 18, 5,"gal",
+	"Cs", "Caesium", "132.9054", 1, 6,"polit",
+	"Ba", "Barium", "132.9054", 2, 6,"pri2",
+	"La", "Lanthanum", "138.90547", 4, 9,"pricila",
+	"Ce", "Cerium", "140.116", 5, 9,"prilu",
+	"Pr", "Praseodymium", "140.90765", 6, 9,"td",
+	"Nd", "Neodymium", "144.242", 7, 9,"tiaclau",
+	"Pm", "Promethium", "(145)", 8, 9,"tiafab",
+	"Sm", "Samarium", "150.36", 9, 9,"tias",
+	"Eu", "Europium", "151.964", 10, 9,"luan",
+	"Gd", "Gadolinium", "157.25", 11, 9,"prim",
+	"Tb", "Terbium", "158.92535", 12, 9,"primo",
+	"Dy", "Dysprosium", "162.5", 13, 9,"primos",
+	"Ho", "Holmium", "164.93032", 14, 9,"raul",
+	"Er", "Erbium", "167.259", 15, 9,"tias",
+	"Tm", "Thulium", "168.93421", 16, 9,"tioca",
+	"Yb", "Ytterbium", "173.054", 17, 9,"tomaz",
+	"Lu", "Lutetium", "174.9668", 18, 9,"tiotia",
+	"Hf", "Hafnium", "178.49", 4, 6,"vil",
+	"Ta", "Tantalum", "180.94788", 5, 6,"sof",
+	"W", "Tungsten", "183.84", 6, 6,"dvd",
+	"Os", "Osmium", "190.23", 8, 6,"dvdd",
+	"Ir", "Iridium", "192.217", 9, 6,"pai",
+	"Pt", "Platinum", "195.084", 10, 6,"paii",
+	"Au", "Gold", "196.966569", 11, 6,"paul",
+	"Hg", "Mercury", "200.59", 12, 6,"nnic",
+	"Tl", "Thallium", "204.3833", 13, 6,"paul2",
+	"Pb", "Lead", "207.2", 14, 6,"nicfel",
+	"Bi", "Bismuth", "208.9804", 15, 6,"nicdin",
+	"Po", "Polonium", "(209)", 16, 6,"ddd",
+	"At", "Astatine", "(210)", 17, 6,"eunicclau",
+	"Rn", "Radon", "(222)", 18, 6,"claumae",
+	"Fr", "Francium", "(223)", 1, 7,"mmm",
+	"Ra", "Radium", "(226)", 2, 7,"lucasraul",
+	"Kr", "Krypton", "83.798", 18, 4,"sofia",
+	"Rb", "Rubidium", "85.4678", 1, 5,"windson",
+	"Sr", "Strontium", "87.62", 2, 5,"3t",
+	"Y", "Yttrium", "88.90585", 3, 5,"bct",
+	"Zr", "Zirconium", "91.224", 4, 5,"caja",
+	"Nb", "Niobium", "92.90628", 5, 5,"carlos",
+	"Mo", "Molybdenum", "95.96", 6, 5,"claudin",
+	"Tc", "Technetium", "(98)", 7, 5,"cris",
+	"Ru", "Ruthenium", "101.07", 8, 5,"cris2",
+	"Rh", "Rhodium", "102.9055", 9, 5,"claunic",
+	"Pd", "Palladium", "106.42", 10, 5,"ddd",
+	"Ag", "Silver", "107.8682", 11, 5,"dinho",
+	"Cd", "Cadmium", "112.411", 12, 5,"eueeu",
+	"In", "Indium", "114.818", 13, 5,"fab",
+	"Sn", "Tin", "118.71", 14, 5,"fablau",
+	"Sb", "Antimony", "121.76", 15, 5,"feri",
+	"Te", "Tellurium", "127.6", 16, 5,"ffelp",
+	"I", "Iodine", "126.90447", 17, 5,"fili",
+	"Xe", "Xenon", "131.293", 18, 5,"gal",
+	"Cs", "Caesium", "132.9054", 1, 6,"polit",
+	"Ba", "Barium", "132.9054", 2, 6,"pri2",
+	"La", "Lanthanum", "138.90547", 4, 9,"pricila",
+	"Ce", "Cerium", "140.116", 5, 9,"prilu",
+	"Pr", "Praseodymium", "140.90765", 6, 9,"td",
+	"Nd", "Neodymium", "144.242", 7, 9,"tiaclau",
+	"Pm", "Promethium", "(145)", 8, 9,"tiafab",
+	"Sm", "Samarium", "150.36", 9, 9,"tias",
+	"Eu", "Europium", "151.964", 10, 9,"luan",
+	"Gd", "Gadolinium", "157.25", 11, 9,"prim",
+	"Tb", "Terbium", "158.92535", 12, 9,"primo",
+	"Dy", "Dysprosium", "162.5", 13, 9,"primos",
+	"Ho", "Holmium", "164.93032", 14, 9,"raul",
+	"Er", "Erbium", "167.259", 15, 9,"tias",
+	"Tm", "Thulium", "168.93421", 16, 9,"tioca",
+	"Yb", "Ytterbium", "173.054", 17, 9,"tomaz",
+	"Lu", "Lutetium", "174.9668", 18, 9,"tiotia",
+	"Hf", "Hafnium", "178.49", 4, 6,"vil",
+	"Ta", "Tantalum", "180.94788", 5, 6,"sof",
+	"W", "Tungsten", "183.84", 6, 6,"dvd",
+	"Os", "Osmium", "190.23", 8, 6,"dvdd",
+	"Ir", "Iridium", "192.217", 9, 6,"pai",
+	"Pt", "Platinum", "195.084", 10, 6,"paii",
+	"Au", "Gold", "196.966569", 11, 6,"paul",
+	"Hg", "Mercury", "200.59", 12, 6,"nnic",
+	"Tl", "Thallium", "204.3833", 13, 6,"paul2",
+	"Pb", "Lead", "207.2", 14, 6,"nicfel",
+	"Bi", "Bismuth", "208.9804", 15, 6,"nicdin",
+	"Po", "Polonium", "(209)", 16, 6,"ddd",
+	"At", "Astatine", "(210)", 17, 6,"eunicclau",
+	"Rn", "Radon", "(222)", 18, 6,"claumae",
+	"Fr", "Francium", "(223)", 1, 7,"mmm",
+	"Ra", "Radium", "(226)", 2, 7,"lucasraul",
+	"Kr", "Krypton", "83.798", 18, 4,"sofia",
+	"Rb", "Rubidium", "85.4678", 1, 5,"windson",
+	"Sr", "Strontium", "87.62", 2, 5,"3t",
+	"Y", "Yttrium", "88.90585", 3, 5,"bct",
+	"Zr", "Zirconium", "91.224", 4, 5,"caja",
+	"Nb", "Niobium", "92.90628", 5, 5,"carlos",
+	"Mo", "Molybdenum", "95.96", 6, 5,"claudin",
+	"Tc", "Technetium", "(98)", 7, 5,"cris",
+	"Ru", "Ruthenium", "101.07", 8, 5,"cris2",
+	"Rh", "Rhodium", "102.9055", 9, 5,"claunic",
+	"Pd", "Palladium", "106.42", 10, 5,"ddd",
+	"Ag", "Silver", "107.8682", 11, 5,"dinho",
+	"Cd", "Cadmium", "112.411", 12, 5,"eueeu",
+	"In", "Indium", "114.818", 13, 5,"fab",
+	"Sn", "Tin", "118.71", 14, 5,"fablau",
+	"Sb", "Antimony", "121.76", 15, 5,"feri",
+	"Te", "Tellurium", "127.6", 16, 5,"ffelp",
+	"I", "Iodine", "126.90447", 17, 5,"fili",
+	"Xe", "Xenon", "131.293", 18, 5,"gal",
+	"Cs", "Caesium", "132.9054", 1, 6,"polit",
+	"Ba", "Barium", "132.9054", 2, 6,"pri2",
+	"La", "Lanthanum", "138.90547", 4, 9,"pricila",
+	"Ce", "Cerium", "140.116", 5, 9,"prilu",
+	"Pr", "Praseodymium", "140.90765", 6, 9,"td",
+	"Nd", "Neodymium", "144.242", 7, 9,"tiaclau",
+	"Pm", "Promethium", "(145)", 8, 9,"tiafab",
+	"Sm", "Samarium", "150.36", 9, 9,"tias",
+	"Eu", "Europium", "151.964", 10, 9,"luan",
+	"Gd", "Gadolinium", "157.25", 11, 9,"prim",
+	"Tb", "Terbium", "158.92535", 12, 9,"primo",
+	"Dy", "Dysprosium", "162.5", 13, 9,"primos",
+	"Ho", "Holmium", "164.93032", 14, 9,"raul",
+	"Er", "Erbium", "167.259", 15, 9,"tias",
+	"Tm", "Thulium", "168.93421", 16, 9,"tioca",
+	"Yb", "Ytterbium", "173.054", 17, 9,"tomaz",
+	"Lu", "Lutetium", "174.9668", 18, 9,"tiotia",
+	"Hf", "Hafnium", "178.49", 4, 6,"vil",
+	"Ta", "Tantalum", "180.94788", 5, 6,"sof",
+	"W", "Tungsten", "183.84", 6, 6,"dvd",
+	"Os", "Osmium", "190.23", 8, 6,"dvdd",
+	"Ir", "Iridium", "192.217", 9, 6,"pai",
+	"Pt", "Platinum", "195.084", 10, 6,"paii",
+	"Au", "Gold", "196.966569", 11, 6,"paul",
+	"Hg", "Mercury", "200.59", 12, 6,"nnic",
+	"Tl", "Thallium", "204.3833", 13, 6,"paul2",
+	"Pb", "Lead", "207.2", 14, 6,"nicfel",
+	"Bi", "Bismuth", "208.9804", 15, 6,"nicdin",
+	"Po", "Polonium", "(209)", 16, 6,"ddd",
+	"At", "Astatine", "(210)", 17, 6,"eunicclau",
+	"Rn", "Radon", "(222)", 18, 6,"claumae",
+	"Fr", "Francium", "(223)", 1, 7,"mmm",
+	"Ra", "Radium", "(226)", 2, 7,"lucasraul"
+
+];
+
+var camera, scene, renderer;
+var controls;
+
+var objects = [];
+var targets = { table: [], sphere: [], helix: [], grid: [] };
+
+init();
+animate();
+
+function init() {
+
+	camera = new THREE.PerspectiveCamera( 35, window.innerWidth / window.innerHeight, 1, 10000 );
+	camera.position.z = 3000;
+
+	scene = new THREE.Scene();
+
+	// table
+
+	for ( var i = 0; i < table.length; i += 6 ) {
+
+		var element = document.createElement( 'div' );
+		element.className = 'element';
+		element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
+
+		var number = document.createElement( 'div' );
+		number.className = 'number';
+		number.textContent = (i/6) + 1;
+		element.appendChild( number );
+
+		var symbol = document.createElement( 'div' );
+		symbol.className = 'symbol';
+		symbol.textContent = table[ i ];
+		element.appendChild( symbol );
+
+		var details = document.createElement( 'div' );
+		details.className = 'details';
+		details.innerHTML = table[ i + 1 ] + '<br>' + table[ i + 2 ];
+		element.appendChild( details );
+		
+		var foto = document.createElement( 'img' );
+		foto.className = 'imagem';
+		foto.setAttribute("src", table[ i + 5 ]);
+	//	foto.innerHTML = table[ i + 1 ] + '<br>' + table[ i + 2 ];
+		element.appendChild( foto );
+		
+
+		var object = new THREE.CSS3DObject( element );
+
+		object.position.x = Math.random() * 4000 - 2000;
+		object.position.y = Math.random() * 4000 - 2000;
+		object.position.z = Math.random() * 4000 - 2000;
+		scene.add( object );
+
+		objects.push( object );
+
+		//
+
+		var object = new THREE.Object3D();
+		object.position.x = ( table[ i + 3 ] * 140 ) - 1330;
+		object.position.y = - ( table[ i + 4 ] * 180 ) + 1830;
+
+		targets.table.push( object );
+
+	}
+
+
+	// sphere
+
+	var vector = new THREE.Vector3();
+	var spherical = new THREE.Spherical();
+
+	for ( var i = 0, l = objects.length; i < l; i ++ ) {
+
+		var phi = Math.acos( -1 + ( 2 * i ) / l );
+		var theta = Math.sqrt( l * Math.PI ) * phi;
+
+		var object = new THREE.Object3D();
+
+		spherical.set( 800, phi, theta );
+
+		object.position.setFromSpherical( spherical );
+
+		vector.copy( object.position ).multiplyScalar( 2 );
+
+		object.lookAt( vector );
+
+		targets.sphere.push( object );
+
+	}
+
+	// helix
+
+	var vector = new THREE.Vector3();
+	var cylindrical = new THREE.Cylindrical();
+
+	for ( var i = 0, l = objects.length; i < l; i ++ ) {
+
+		var theta = i * 0.175 + Math.PI;
+		var y = - ( i * 8 ) + 450;
+
+		var object = new THREE.Object3D();
+
+		cylindrical.set( 900, theta, y );
+
+		object.position.setFromCylindrical( cylindrical );
+
+		vector.x = object.position.x * 2;
+		vector.y = object.position.y;
+		vector.z = object.position.z * 2;
+
+		object.lookAt( vector );
+
+		targets.helix.push( object );
+
+	}
+
+	// grid
+
+	for ( var i = 0; i < objects.length; i ++ ) {
+
+		var object = new THREE.Object3D();
+
+		object.position.x = ( ( i % 5 ) * 400 ) - 800;
+		object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 400 ) + 800;
+		object.position.z = ( Math.floor( i / 25 ) ) * 1000 - 2000;
+
+		targets.grid.push( object );
+
+	}
+
+	//
+
+	renderer = new THREE.CSS3DRenderer();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.domElement.style.position = 'absolute';
+	document.getElementById( 'containerr' ).appendChild( renderer.domElement );
+
+	//
+
+	controls = new THREE.TrackballControls( camera, renderer.domElement );
+	controls.rotateSpeed = 0.7;
+	controls.minDistance = 500;
+	controls.maxDistance = 8000;
+	controls.addEventListener( 'change', render );
+
+	var button = document.getElementById( 'table' );
+	button.addEventListener( 'click', function ( event ) {
+
+		transform( targets.table, 3000 );
+
+	}, false );
+
+	var button = document.getElementById( 'sphere' );
+	button.addEventListener( 'click', function ( event ) {
+
+		transform( targets.sphere, 3000 );
+		
+
+	}, false );
+
+	var button = document.getElementById( 'helix' );
+	button.addEventListener( 'click', function ( event ) {
+
+		transform( targets.helix, 3000 );
+
+	}, false );
+
+	var button = document.getElementById( 'grid' );
+	button.addEventListener( 'click', function ( event ) {
+
+		transform( targets.grid, 3000 );
+
+	}, false );
+
+	transform( targets.sphere, 3000 );
+	
+
+	//
+
+	window.addEventListener( 'resize', onWindowResize, false );
+
+}
+
+
+function transform( targets, duration ) {
+
+	TWEEN.removeAll();
+
+	for ( var i = 0; i < objects.length; i ++ ) {
+
+		var object = objects[ i ];
+		var target = targets[ i ];
+
+		new TWEEN.Tween( object.position )
+			.to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )
+			.easing( TWEEN.Easing.Exponential.InOut )
+			.start();
+
+		new TWEEN.Tween( object.rotation )
+			.to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
+			.easing( TWEEN.Easing.Exponential.InOut )
+			.start();
+
+	}
+
+	new TWEEN.Tween( this )
+		.to( {}, duration * 2 )
+		.onUpdate( render )
+		.start();
+
+}
+
+function onWindowResize() {
+
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+
+	renderer.setSize( window.innerWidth, window.innerHeight );
+
+	render();
+
+}
+
+function animate() {
+	
+	requestAnimationFrame( animate );
+	
+	TWEEN.update();
+
+	controls.update();
+
+}
+
+function render() {
+
+	renderer.render( scene, camera );
+
+}
+
+
+$("div.element").on("click", function(ev) {
+	
+	//	alert($(this).text());
+		
+		var numero = $("div.element > .number").text();
+		
+		var details = $("div.element > .details").text();
+		
+		var simb = $("div.element > .symbol").text();
+		
+		
+// 		var head = $(this).get(0).textContent;
+	
+// 		var det = $(this).get(2).innerHTML;
+	
+// 	var ele = $(this).textContent;
+	
+// 	var ele2 = $(this).html();textContent
+	
+	
+// 	var ele3 = $(this).innerText;
+	
+// var numb =document.getElementsByClassName(".element .number")[0].textContent;
+
+// var det =document.getElementsByClassName($(this))[2].innerText;
+	
+ 	 var buttonTrash = $(ev.target);
+ 	    var quantTrash = buttonTrash.siblings(".number");
+ 	    var quantTrashValue = quantTrash.text();
+	    
+		 var buttonTrash2 = $(ev.target);
+		    var quantTrash2 = buttonTrash2.siblings(".details");
+		    var quantTrashValue2 = quantTrash2.text();
+		    
+			 var buttonTrash3 = $(ev.target);
+			    var quantTrash3 = buttonTrash3.siblings(".symbol");
+			    var quantTrashValue3 = quantTrash3.text();
+
+// 	var test = $(this).children().eq(0).value;
+	 
+// 	var test2 = $(".element").children().eq(2).innerHTML;
+	
+	
+ 	
+	
+ var hed =	$("#headone").text(quantTrashValue);
+ 
+// hed.value = quantTrashValue;
+ 
+ var pon =	$("#pone").text(quantTrashValue2);
+ 
+ var ponsim =$("#ponesim").text(quantTrashValue3);
+ 
+ 
+//  var pom = $("#pone").val("hahaha");
+ 
+// pon.value=quantTrashValue2;
+ 
+//  alert("clicou",quantTrashValue);
+//  alert("clicou" + quantTrashValue2);
+// alert("clicou",ele3);
+ 
+// alert("clicou head"+hed);
+ 
+// alert("clicou det"+pon);
+ 
+//  alert("clicou head"+numero);
+ 
+//  alert("clicou det"+details);
+ 
+ // alert("clicou"+quantTrashValue);
+	
+ 	$('#myModal').modal("show");
+ 	
+ 	
+//	 var valorDaDiv = $(this).text();
+	
+
+	
+//	$('#container').cycle();
+	
+//  	alert("headone" ,quantTrashValue);
+	
+//  	alert("pone",quantTrashValue2);
+	
+// 	$.each( $( ".element" ), function() {
+// 	    alert( this );
+// 	});
+	
+	
+	});
+
+
+
+/*]]>*/
+
+</script>
+
+	
+	
+	</body>
+
+</html>

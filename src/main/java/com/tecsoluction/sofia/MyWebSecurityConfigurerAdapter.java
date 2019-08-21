@@ -52,34 +52,34 @@ public class MyWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter
 				.antMatchers("/resources/**").permitAll()
 				.antMatchers("/static/**").permitAll()
 				.antMatchers("/templates/**").permitAll()
-				.antMatchers("/web/**").permitAll()
+//				.antMatchers("/web/**").permitAll()
 				.antMatchers("/build/**").permitAll()
-				.antMatchers("/sorteio/**").permitAll()
-				.antMatchers("/cardapio/**").permitAll()
-				.antMatchers("/vendors/**").permitAll()
-				.antMatchers("/img/**").permitAll()
-				.antMatchers("/image/**").permitAll()
+//				.antMatchers("/sorteio/**").permitAll()
+//				.antMatchers("/cardapio/**").permitAll()
+//				.antMatchers("/vendors/**").permitAll()
+//				.antMatchers("/img/**").permitAll()
+//				.antMatchers("/image/**").permitAll()
 				.antMatchers("/images/**").permitAll()
-				.antMatchers("/tabela").permitAll()
-				.antMatchers("/inicial").permitAll()
-				.antMatchers("*/images/**").permitAll()
+				.antMatchers("/esfera").permitAll()
+				.antMatchers("/home").permitAll()
+//				.antMatchers("*/images/**").permitAll()
 				.antMatchers("/tab/**").permitAll()
-				.antMatchers("/globe/**").permitAll()
+//				.antMatchers("/globe/**").permitAll()
 				.antMatchers("/css/**").permitAll()
 				.antMatchers("/js/**").permitAll()
 				.antMatchers("/login").permitAll()
 				.antMatchers("/error/**").permitAll()
-				.antMatchers("/fonts/**").permitAll()
+//				.antMatchers("/fonts/**").permitAll()
 				.antMatchers("/bootstrap/**").permitAll()
-				.antMatchers("/usuario/listar/").permitAll()
-				.antMatchers("/evento/listar/").permitAll()
-				.antMatchers("/paciente/listar/").permitAll()
-				.antMatchers("/atividade/listar/").permitAll()
-				.antMatchers("/build/**").permitAll()
+//				.antMatchers("/usuario/listar/").permitAll()
+//				.antMatchers("/evento/listar/").permitAll()
+//				.antMatchers("/paciente/listar/").permitAll()
+//				.antMatchers("/atividade/listar/").permitAll()
+//				.antMatchers("/build/**").permitAll()
 				.antMatchers("/data/**").permitAll()
 				.antMatchers("/webjars/**").permitAll()
 				.antMatchers("/").permitAll()
-				.antMatchers("*/sass/**").permitAll();
+				.antMatchers("/sass/**").permitAll();
 //				.antMatchers("/private/**").hasAnyRole("CLIENTE","ADM").anyRequest().authenticated()
 //				.and()
 //				.csrf().disable().formLogin()
@@ -114,21 +114,21 @@ public class MyWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter
        .ignoring()
        .antMatchers("/js/**");
        
-       web
-       .ignoring()
-       .antMatchers("/img/**");
+//       web
+//       .ignoring()
+//       .antMatchers("/img/**");
        
-       web
-       .ignoring()
-       .antMatchers("/web/**");
+//       web
+//       .ignoring()
+//       .antMatchers("/web/**");
        
        web
        .ignoring()
        .antMatchers("/build/**");
        
-       web
-       .ignoring()
-       .antMatchers("/vendors/**");
+//       web
+//       .ignoring()
+//       .antMatchers("/vendors/**");
        
        web
        .ignoring()
@@ -144,42 +144,42 @@ public class MyWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter
        
        web
        .ignoring()
-       .antMatchers("*/sass/**");
+       .antMatchers("/sass/**");
+       
+//       web
+//       .ignoring()
+//       .antMatchers("*/fonts/**");
        
        web
        .ignoring()
-       .antMatchers("*/fonts/**");
+       .antMatchers("/error/**");
+       
+//       web
+//       .ignoring()
+//       .antMatchers("*/image/**");
+       
+//       web
+//       .ignoring()
+//       .antMatchers("*/globe/**");
        
        web
        .ignoring()
-       .antMatchers("*/error/**");
+       .antMatchers("/tab/**");
+       web
+       .ignoring()
+       .antMatchers("/images/**");
        
        web
        .ignoring()
-       .antMatchers("*/image/**");
-       
-       web
-       .ignoring()
-       .antMatchers("*/globe/**");
-       
-       web
-       .ignoring()
-       .antMatchers("*/tab/**");
-       web
-       .ignoring()
-       .antMatchers("*/images/**");
-       
-       web
-       .ignoring()
-       .antMatchers("*/tabela/**");
+       .antMatchers("/esfera/**");
 
        web
        .ignoring()
-       .antMatchers("*/data/**");
+       .antMatchers("/data/**");
 	
     web
     .ignoring()
-    .antMatchers("*/inicial/**");
+    .antMatchers("/home/**");
 
 	}
 	

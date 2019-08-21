@@ -27,10 +27,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-@RequestMapping("/")
-public class HomeController {
+@RequestMapping("/esfera")
+public class EsferaController {
 	
-    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+    private static final Logger logger = LoggerFactory.getLogger(EsferaController.class);
     
 //	@Autowired
 //	private  UsuarioServicoImpl usuarioService;
@@ -165,14 +165,14 @@ public class HomeController {
 
 
 
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView Home(Locale locale, Model model) {
        
     	
     	
-    	logger.info("Welcome Home /home! The client locale is {}.", locale);
+    	logger.info("Welcome esfera /esfera! The client locale is {}.", locale);
 
-        ModelAndView home = new ModelAndView("/public/home");
+        ModelAndView home = new ModelAndView("/public/esfera");
         
        
          
@@ -183,194 +183,24 @@ public class HomeController {
         return home;
     }
     
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView Homem(Locale locale, Model model) {
-       
-    	logger.info("Welcome home /! The client locale is {}.", locale);
-    	
-
-		
-		
-
-     //   ModelAndView home = new ModelAndView("/public/home");
-
-
-        return new ModelAndView("redirect:/home");
-    }
-    
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView Loginn(Locale locale, Model model) {
-      
-    	logger.info("Welcome loginn home! The client locale is {}.", locale);
-
-    	Date data = new Date();
-    	Calendar cal = Calendar.getInstance();
-    	cal.setTime(data);
-    	
-    	int day = cal.get(Calendar.DAY_OF_MONTH);
-    	int month = cal.get(Calendar.MONTH);
-    	int year = cal.get(Calendar.YEAR);
-
-    	int hora = cal.get(Calendar.HOUR_OF_DAY);
-    	int minuto = cal.get(Calendar.MINUTE);
-    	int segundo = cal.get(Calendar.SECOND);
-    	
-    	int horafull = cal.get(Calendar.HOUR);
-    	
-    	
-		
-		System.out.println("Day: "+ day);
-		System.out.println("Month: "+ month);
-		System.out.println("Year: "+ year);
-		
-		
-		Date d = new Date();
-		Calendar c = new GregorianCalendar();
-		c.setTime(d);
-		String dianome = "";
-		String mesnome = "";
-		int dia = c.get(c.DAY_OF_WEEK);
-		int mes =c.get(c.MONTH);
-		
-		
-		switch(dia){
-		  case Calendar.SUNDAY: dianome = "Domingo";break;
-		  case Calendar.MONDAY: dianome = "Segunda";break;
-		  case Calendar.TUESDAY: dianome = "Terça";break;
-		  case Calendar.WEDNESDAY: dianome = "Quarta";break;
-		  case Calendar.THURSDAY: dianome = "Quinta";break;
-		  case Calendar.FRIDAY: dianome = "Sexta";break;
-		  case Calendar.SATURDAY: dianome = "Sábado";break;
-		}
-		
-		switch(mes){
-		  case Calendar.JANUARY: mesnome = "Janeiro";break;
-		  case Calendar.FEBRUARY: mesnome = "Fevereiro";break;
-		  case Calendar.MARCH: mesnome = "Março";break;
-		  case Calendar.APRIL: mesnome = "Abril";break;
-		  case Calendar.MAY: mesnome = "Maio";break;
-		  case Calendar.JUNE: mesnome = "Junho";break;
-		  case Calendar.JULY: mesnome = "Julho";break;
-		  
-		  case Calendar.AUGUST: mesnome = "Agosto";break;
-		  case Calendar.SEPTEMBER: mesnome = "Setembro";break;
-		  case Calendar.OCTOBER: mesnome = "Outubro";break;
-		  case Calendar.NOVEMBER: mesnome = "Novembro";break;
-		  case Calendar.DECEMBER: mesnome = "Dezembro";break;
-		}
-
-        ModelAndView login = new ModelAndView("/public/home");
-        
-        login.addObject("dia", dia);
-        login.addObject("mes", month);
-        login.addObject("ano", year);
-        login.addObject("dianome", dianome);
-        login.addObject("mesnome", mesnome);
-        login.addObject("hora", hora);
-        login.addObject("minuto", minuto);
-        login.addObject("segundo", segundo);
-        login.addObject("horafull", horafull);
-        login.addObject("day", day);
-        
-        return login;
-    }
-    
-//    @RequestMapping(value = "/inicial", method = RequestMethod.GET)
-//    public ModelAndView Login(Locale locale, Model model) {
-//      
-//    	logger.info("Welcome inicial! The client locale is {}.", locale);
+//    @RequestMapping(value = "/", method = RequestMethod.GET)
+//    public ModelAndView Homem(Locale locale, Model model) {
+//       
+//    	logger.info("Welcome esfera /! The client locale is {}.", locale);
+//    	
 //
-//    	Date data = new Date();
-//    	Calendar cal = Calendar.getInstance();
-//    	cal.setTime(data);
-//    	
-//    	int day = cal.get(Calendar.DAY_OF_MONTH);
-//    	int month = cal.get(Calendar.MONTH);
-//    	int year = cal.get(Calendar.YEAR);
+//		
+//		
 //
-//    	int hora = cal.get(Calendar.HOUR_OF_DAY);
-//    	int minuto = cal.get(Calendar.MINUTE);
-//    	int segundo = cal.get(Calendar.SECOND);
-//    	
-//    	int horafull = cal.get(Calendar.HOUR);
-//    	
-//    	
-//		
-//		System.out.println("Day: "+ day);
-//		System.out.println("Month: "+ month);
-//		System.out.println("Year: "+ year);
-//		
-//		
-//		Date d = new Date();
-//		Calendar c = new GregorianCalendar();
-//		c.setTime(d);
-//		String dianome = "";
-//		String mesnome = "";
-//		int dia = c.get(c.DAY_OF_WEEK);
-//		int mes =c.get(c.MONTH);
-//		
-//		
-//		switch(dia){
-//		  case Calendar.SUNDAY: dianome = "Domingo";break;
-//		  case Calendar.MONDAY: dianome = "Segunda";break;
-//		  case Calendar.TUESDAY: dianome = "Terça";break;
-//		  case Calendar.WEDNESDAY: dianome = "Quarta";break;
-//		  case Calendar.THURSDAY: dianome = "Quinta";break;
-//		  case Calendar.FRIDAY: dianome = "Sexta";break;
-//		  case Calendar.SATURDAY: dianome = "Sábado";break;
-//		}
-//		
-//		switch(mes){
-//		  case Calendar.JANUARY: mesnome = "Janeiro";break;
-//		  case Calendar.FEBRUARY: mesnome = "Fevereiro";break;
-//		  case Calendar.MARCH: mesnome = "Março";break;
-//		  case Calendar.APRIL: mesnome = "Abril";break;
-//		  case Calendar.MAY: mesnome = "Maio";break;
-//		  case Calendar.JUNE: mesnome = "Junho";break;
-//		  case Calendar.JULY: mesnome = "Julho";break;
-//		  
-//		  case Calendar.AUGUST: mesnome = "Agosto";break;
-//		  case Calendar.SEPTEMBER: mesnome = "Setembro";break;
-//		  case Calendar.OCTOBER: mesnome = "Outubro";break;
-//		  case Calendar.NOVEMBER: mesnome = "Novembro";break;
-//		  case Calendar.DECEMBER: mesnome = "Dezembro";break;
-//		}
+//        ModelAndView home = new ModelAndView("/public/esfera");
 //
-//        ModelAndView login = new ModelAndView("/public/home");
-//        
-//        login.addObject("dia", dia);
-//        login.addObject("mes", month);
-//        login.addObject("ano", year);
-//        login.addObject("dianome", dianome);
-//        login.addObject("mesnome", mesnome);
-//        login.addObject("hora", hora);
-//        login.addObject("minuto", minuto);
-//        login.addObject("segundo", segundo);
-//        login.addObject("horafull", horafull);
-//        login.addObject("day", day);
-//        
-//        return login;
+//
+//        return new ModelAndView("redirect:/esfera");
 //    }
     
-//    @RequestMapping(value = "/tabela", method = RequestMethod.GET)
-//    public ModelAndView cardapio(Locale locale, Model model) {
-//      
-//    	logger.info("Welcome tabela! The client locale is {}.", locale);
-//
-//
-//        ModelAndView login = new ModelAndView("/public/tabela");
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-////        login.addObject("usuario", new Usuario());
-//
-//
-//        return login;
-//    }
+  
+    
+  
     
 //    @RequestMapping(value = "/sorteio", method = RequestMethod.GET)
 //    public ModelAndView Sorteio(Locale locale, Model model) {
